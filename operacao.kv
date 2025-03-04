@@ -1,0 +1,42 @@
+<OperacaoScreen>:
+    BoxLayout:
+        orientation: 'horizontal'
+        ComplexCalculatorLayout:
+            id: complex_calculator
+    FloatLayout:
+        AnchorLayout:
+            anchor_x: 'right'
+            anchor_y: 'top'
+            size_hint: None, None
+            size: dp(100), dp(50)
+            pos_hint: {'top': 1, 'right': 1}
+            Button:
+                text: 'Voltar'
+                size_hint: 1, 1
+                on_release: app.root.current = 'main'
+
+<ComplexCalculatorLayout>:
+    orientation: 'vertical'
+    entrada_input: entrada_input
+    resultado_retangular_label: resultado_retangular_label
+    resultado_polar_label: resultado_polar_label
+
+    Label:
+        font_size: 30
+        text: 'Digite os valores complexos e a operação:'
+    TextInput:
+        id: entrada_input
+        halign: 'center'
+        padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+    Button:
+        font_size: 30
+        text: 'Calcular'
+        on_release: root.calcular()
+    BoxLayout:
+        orientation: 'horizontal'
+        Label:
+            font_size: 25
+            id: resultado_retangular_label
+        Label:
+            font_size: 25
+            id: resultado_polar_label
