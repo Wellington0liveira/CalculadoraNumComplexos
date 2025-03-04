@@ -1,0 +1,98 @@
+<DeterminanteScreen>:
+    FloatLayout:
+
+        DeterminanteComplexoLayout:
+            pos_hint: {'center_x': 0.5, 'center_y': 1}
+            size_hint: 0.9, 0.9
+
+        AnchorLayout:
+            anchor_x: 'right'
+            anchor_y: 'top'
+            size_hint: None, None
+            size: dp(100), dp(50)
+            pos_hint: {'top': 1, 'right': 1}
+            Button:
+                text: 'Voltar'
+                size_hint: 1, 1
+                on_release: app.root.current = 'main'
+
+<DeterminanteComplexoLayout>:
+    orientation: 'vertical'
+    padding: '10dp'
+    spacing: '10dp'
+
+    Label:
+        text: 'Insira os valores do determinante'
+        size_hint: 1, 0.1
+        font_size: '18sp'
+        pos_hint: {'center_x': 0.5, 'center_y': 0.45}
+
+    GridLayout:
+        cols: 3
+        spacing: '10dp'
+        size_hint: 1, 0.4
+
+        BoxLayout:
+            orientation: 'vertical'
+            TextInput:
+                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+                halign: 'center'
+                id: a_input
+                multiline: False
+
+        BoxLayout:
+            orientation: 'vertical'
+            TextInput:
+                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+                halign: 'center'
+                id: c_input
+                multiline: False
+
+        BoxLayout:
+            orientation: 'vertical'
+            TextInput:
+                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+                halign: 'center'
+                id: e_input
+                multiline: False
+
+        BoxLayout:
+            orientation: 'vertical'
+            TextInput:
+                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+                halign: 'center'
+                id: b_input
+                multiline: False
+
+        BoxLayout:
+            orientation: 'vertical'
+            TextInput:
+                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+                halign: 'center'
+                id: d_input
+                multiline: False
+
+        BoxLayout:
+            orientation: 'vertical'
+            TextInput:
+                padding_y: [self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0]
+                halign: 'center'
+                id: f_input
+                multiline: False
+
+    Button:
+        text: 'Calcular'
+        size_hint: 1, 0.1
+        pos_hint: {'center_x': 0.5, 'center_y': -0.5}  # Adicionado pos_hint para mover o botão para baixo
+        on_release: root.calcular_determinante()
+
+    BoxLayout:
+        orientation: 'vertical'
+        pos_hint: {'center_x': 0.5, 'center_y': -0.25}  # Exemplo de pos_hint para posicionar o bloco das respostas
+        Label:
+            id: resultado_label
+            text: ''
+            size_hint: 1, 0.4
+            font_size: '18sp'
+            halign: 'center'
+            valign: 'middle'
